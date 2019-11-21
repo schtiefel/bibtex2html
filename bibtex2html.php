@@ -381,7 +381,16 @@ function formatAuthors($author, $hightlightName, $authorLimit = 0){
 		
 		$authArr[$i] = trim($secondNames.$sepName.$firstNames);
 		
-		if($hightlightName != '' && strtolower($secondNames) == strtolower($hightlightName)) $authArr[$i] = '<span class="highlight">'.$authArr[$i].'</span>';
+		if($hightlightName != '') {
+			if (is_string($hightlightName)) {
+				$hightlightName = [$hightlightName];
+			}
+			if (is_array($hightlightName)) {
+				foreach ($hightlightName as &$singleHighlightName) {
+					if (strtolower($secondNames) == strtolower($singleHighlightName)) $authArr[$i] = '<span class="highlight">' . $authArr[$i] . '</span>';
+				}
+			}
+		}
 		
 		$i++;
 	}
