@@ -1,0 +1,7 @@
+{
+    "name": "schtiefel/bibtex2html",
+    "description": "BibTeX to HTML conversion script (PHP)",
+    "require": {
+        "php": "^5.6"
+    }
+}
